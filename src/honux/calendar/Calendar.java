@@ -15,6 +15,14 @@ public class Calendar {
 		int[] days = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 		System.out.printf("%d월은 %d일까지 있습니다.\n", monthu, days[monthu-1]);
 		
+		System.out.println("Year");
+		int y = scanner.nextInt();
+		System.out.println("Month");
+		int m = scanner.nextInt();
+		System.out.println("first day of the month");
+		int firstd = scanner.nextInt();
+		calendarprint(y, m, firstd, days);
+		
 	}
 	public static void print() {
 		System.out.println(" 월  화   수   목   금   토   일");
@@ -38,5 +46,45 @@ public class Calendar {
 		return day;
 	}
 	
-
+	
+	public static void calendarprint(int year, int month, int dayofw, int[] days) {
+		System.out.printf("   <<%d년 %d월>>  \n", year, month);
+		System.out.println("SU MO TU WE TH FR SA");
+		System.out.println("---------------------");
+		//firstline
+		String firstline = " 1 ";
+		for(int i=1;i<dayofw+1;i++){
+			firstline = "   " + firstline;
+		}
+	
+		int date = 1;
+		for(int j=1;j<7-dayofw;j++) {
+			date = date + 1;
+			firstline = firstline + " " + date + " ";
+		}
+		System.out.println(firstline);
+		
+		//secondline
+		int datenum = 7 - dayofw + 1;
+		for(int k = 2;k<6;k++) {
+		String line = "";
+		int count = 1;
+		while(count<8) {
+			if(datenum<10) {
+			line = line + " " + datenum + " ";
+			datenum = datenum +1;
+			count = count+1;
+			}
+			else {
+				line = line + datenum + " ";
+				datenum = datenum +1;
+				count = count+1;
+			}
+			if(datenum>days[month-1]) {
+				break;
+			}
+		}
+		System.out.println(line);
+		}
+	}
 }
