@@ -19,7 +19,7 @@ public class Calendar {
 		int y = scanner.nextInt();
 		System.out.println("Month");
 		int m = scanner.nextInt();
-		System.out.println("first day of the month");
+		System.out.println("first day of the month(0 is Sun, 1 is Mon, 2 is Tues...");
 		int firstd = scanner.nextInt();
 		calendarprint(y, m, firstd, days);
 		
